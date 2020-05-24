@@ -1,0 +1,24 @@
+type Website {
+    id: ID! @id
+    url: String!
+    description: String!
+    postedBy: User
+    likes: [Like!]!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+}
+
+type User {
+    id: ID! @id
+    name: String!
+    email: String! @unique
+    password: String!
+    websites: [Website!]!
+    likes: [Like!]!
+}
+
+type Like {
+    id: ID! @id
+    website: Website!
+    user: User!
+}
